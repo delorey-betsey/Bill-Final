@@ -8,16 +8,38 @@ public class Backyard implements Serializable {
      //class-instance variables
     private Player mmvPlayer;
     private int locationID;
-    private String foundItem;
+    private SleepAids foundItem;
         
     public Backyard(Player player) {
         this.mmvPlayer = player;
         this.locationID = 2;
-        this.foundItem = "Tranquilizer Dart";
+        this.foundItem = SleepAids.TRANQUILIZER_DART;
     }
     
-        public Player pickupItem() {
-         
+    public int getLocationID() {
+        return locationID;
+    }
+
+    public void setLocationID(int locationID) {
+        this.locationID = locationID;
+    }
+    
+    
+    public Player pickupItem() {
+        
+        /*
+        The ! = NOT.  Remember that an if() block only executes when the argument
+        evaluates to true. So the statement reads: if(NOT mmvPLayer.hasItem(foundItem)).
+        
+        When the player already has picked up the item  .hasItem(foundItem) will
+        return True.  The statement then becomes if(NOT true) or if(false) & the
+        if block does NOT run.  
+        
+        If the player has not already come across the item, .hasItem(foundItem) 
+        will return false and statement becomes if(NOT false) or if(true) 
+        and the if block runs
+        */
+        
         if (!mmvPlayer.hasItem(foundItem)) {
         
             for (SleepAids sleepAid : new SleepAids[]{
@@ -34,15 +56,7 @@ public class Backyard implements Serializable {
 
         return mmvPlayer;
     }
-        
-    public int getLocationID() {
-        return locationID;
-    }
-
-    public void setLocationID(int locationID) {
-        this.locationID = locationID;
-    }
-    
+            
     @Override
     public int hashCode() {
         int hash = 3;

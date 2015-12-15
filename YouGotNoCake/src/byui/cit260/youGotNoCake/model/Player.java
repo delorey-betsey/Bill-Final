@@ -46,21 +46,21 @@ public class Player implements Serializable{
     public boolean hasItem(String item) {
         boolean hasItem = false;
         if (foundCakeIngredients.contains(item) 
-                || foundPartySupplies.contains(item) 
-                || foundSleepAids.contains(item)) {
+                || foundPartySupplies.contains(item)) {
             hasItem = true;
         }
         return hasItem;
     }
     
-        public boolean hasItem(SleepAids item){
+    public boolean hasItem(SleepAids item){
          boolean hasItem = false;
         if (foundSleepAids.contains(item)) {
             hasItem = true;
         }
         return hasItem;
     }
-        
+    
+    
     public ArrayList<String> getFoundCakeIngredients() {
         return foundCakeIngredients;
     }
