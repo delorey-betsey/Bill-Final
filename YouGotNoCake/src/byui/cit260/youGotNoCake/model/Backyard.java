@@ -16,19 +16,22 @@ public class Backyard implements Serializable {
         this.foundItem = "Tranquilizer Dart";
     }
     
-    public Player pickupItem() {
+        public Player pickupItem() {
+         
+        if (!mmvPlayer.hasItem(foundItem)) {
         
-            for (String cakeIngredient : new CakeIngredients().getCakeIngredientsArray()) {
-                if (cakeIngredient.equalsIgnoreCase(foundItem)) {
-                    mmvPlayer.getFoundCakeIngredients().add(foundItem);
+            for (SleepAids sleepAid : new SleepAids[]{
+                SleepAids.APNEA_FAIRY,
+                SleepAids.TAX_CODE,
+                SleepAids.TRANQUILIZER_DART,
+                SleepAids.WARM_MILK
+            }) {
+                if (sleepAid.equals(foundItem)) {
+                    mmvPlayer.getFoundSleepAids().add(foundItem);
                 }
             }
+        }
 
-            for (String partySupply : new PartySupplies().getPartySuppliesArray()) {
-                if (partySupply.equalsIgnoreCase(foundItem)) {
-                    mmvPlayer.getFoundPartySupplies().add(foundItem);
-                }
-            }
         return mmvPlayer;
     }
         

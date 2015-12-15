@@ -111,9 +111,9 @@ public class CrossOffItemMenuView extends View {
         pickUpPlayer.sortPlayerItems(pickUpPlayer.getFoundPartySupplies());
         //for each Party Supply list item
         int counter = 0;
-        for (String psItem : pslist) {
+        for (int i = 0; i < pslist.length; i++) {
             //display the description and the found flag
-            System.out.print(psItem + "\t\t");
+            System.out.print(pslist[i] + "\t\t");
             
             //use counter to make sure we dont get array-out-of-bounds error
             //when trying to print a list with fewer items than the reference list
@@ -126,7 +126,6 @@ public class CrossOffItemMenuView extends View {
             counter++;
         }
     } 
-
     private void viewCIList() {
         //get the sorted list of Sleep Aid items for the current game
         String[] cilist = new CakeIngredients().getCakeIngredientsArray();
